@@ -31,4 +31,6 @@ FROM gcr.io/distroless/static:nonroot
 COPY --from=builder /go/src/k8s.io/ingress-nginx/images/custom-error-pages/nginx-errors /
 USER nonroot:nonroot
 
+COPY --chown=nonroot:nonroot www /www
+
 CMD ["/nginx-errors"]
